@@ -1,0 +1,70 @@
+##################
+# build
+##################
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+##################
+# poetry
+##################
+[virtualenvs]
+create = true
+
+[tool.poetry]
+name = "telecomcredit"
+version = "1.0.0"
+description = ""
+authors = ["frgmt"]
+packages = [{ include = "telecomcredit" }]
+package-mode = true
+
+[tool.poetry.dependencies]
+pydantic = "^2.10.4"
+python = "3.12.6"
+requests = "^2.32.3"
+setuptools = "^75.6.0"
+twine = "^6.0.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.0.0"
+mypy = "1.7.0"
+pre-commit = "^3.4.0"
+pytest = "^8.0.0"
+pytest-mock = "^3.12.0"
+pytest-xdist = "^3.3.1"
+requests-mock = "^1.11.0"
+ruff = "^0.8.3"
+tox = "^4.23.2"
+types-requests = "^2.32.0.20241016"
+
+##################
+# ruff
+##################
+[tool.ruff]
+fix = true
+lint.fixable = ["ALL"]
+lint.ignore = ["A003", "COM812", "D", "ERA001", "ISC001", "PLC2401", "PLC2403", "RUF001", "S101", "SIM103", "TC001", "TC002", "TC003", "UP040"]
+lint.select = ["ALL"]
+lint.unfixable = ["ERA001", "F401"]
+include = ["telecomcredit/*.py", "tests/*.py"]
+target-version = "py312"
+
+##################
+# mypy
+##################
+[tool.mypy]
+mypy_path = "$MYPY_CONFIG_FILE_DIR"
+packages = ["telecomcredit", "tests"]
+python_version = "3.12"
+
+strict = true
+warn_unreachable = true
+warn_no_return = true
+ignore_missing_imports = true
+disallow_untyped_decorators = false
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+disable_error_code = "attr-defined"
