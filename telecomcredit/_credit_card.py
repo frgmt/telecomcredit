@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Self
+from typing import Any
 from urllib.parse import urlencode
 
 from requests import Response, post
@@ -19,10 +19,10 @@ class Order(CommonModel):
     option: str | None = None
 
 
-def get_order_url(self: Self, *, money: int, **kwargs: dict[str, Any]) -> str:
+def get_order_url(self, *, money: int, **kwargs: dict[str, Any]) -> str:
     """
     都度決済用URL取得
-    :param self: Self
+    :param self
     :param money: int: 金額
     :param kwargs: dict[str, Any]: その他
     :return: str: URL
@@ -31,10 +31,10 @@ def get_order_url(self: Self, *, money: int, **kwargs: dict[str, Any]) -> str:
     return f"{self._base_url}?{urlencode(model.model_dump(exclude_none=True))}"
 
 
-def post_order(self: Self, money: int, **kwargs: dict[str, Any]) -> Response:
+def post_order(self, money: int, **kwargs: dict[str, Any]) -> Response:
     """
     都度決済用へ金額やその他指定して遷移
-    :param self: Self
+    :param self
     :param money: int: 金額
     :param kwargs: dict[str, Any]: その他
     :return: Response: POST結果

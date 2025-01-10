@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from types import MethodType
-from typing import Self
 
 from telecomcredit._credit_card import get_order_url, post_order
 from telecomcredit._webhook import received_result
@@ -11,7 +10,7 @@ class TelecomCreditClient:
     _base_url: str = "https://secure.telecomcredit.co.jp/inetcredit/secure/order.pl"
     _clientip: str
 
-    def __init__(self: Self, *, clientip: str) -> None:
+    def __init__(self, *, clientip: str) -> None:
         self._clientip = clientip
 
         # 都度決済
