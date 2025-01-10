@@ -13,7 +13,7 @@ create = true
 
 [tool.poetry]
 name = "telecomcredit"
-version = "1.0.1"
+version = "1.0.2"
 description = ""
 authors = ["frgmt"]
 packages = [{ include = "telecomcredit" }]
