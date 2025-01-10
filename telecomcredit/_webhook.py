@@ -1,9 +1,19 @@
 from __future__ import annotations
 
-from typing import Any
+from enum import Enum
+from telecomcredit._base import CommonModel
+from typing import Any, Literal
 from uuid import UUID
 
-from telecomcredit._base import CommonModel
+
+class RelEnum(Enum):
+    YES = "yes"
+    NO = "no"
+
+
+class ContEnum(Enum):
+    YES = "yes"
+    NO = "no"
 
 
 class Result(CommonModel):
@@ -11,8 +21,8 @@ class Result(CommonModel):
     email: str
     username: str | None = None
     sendpass: str | None = None
-    rel: str
-    cont: str
+    rel: RelEnum
+    cont: ContEnum
     settle_uuid: UUID
     option: str | None = None
     rebill_param_id: str | None = None

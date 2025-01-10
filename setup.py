@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="telecomcredit",
-    version="1.0.2",
+    version="1.0.4",
     description="Python bindings for the telecomcredit API",
     author="frgmt",
     url="https://github.com/frgmt/telecomcredit",
